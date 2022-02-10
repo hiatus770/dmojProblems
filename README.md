@@ -1,2 +1,5 @@
 # dmojProblems
-all my problemos that i solved
+handle: Tirzen
+
+im kinda bad but here is where im gonna put my code in case i wanna look bad
+
