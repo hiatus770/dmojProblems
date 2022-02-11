@@ -7,7 +7,7 @@ const int MD = 1001;
 #define maxN 2000
 
 int n, k; 
-int arr[maxN]; int ans; 
+int arr[maxN]; int ans = 1; 
 
 int main(){
     cin >> n >> k;
