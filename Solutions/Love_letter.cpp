@@ -26,7 +26,7 @@ int main(){
   getline (cin,message);
   getline (cin,message);
   
-  for (int i = 0; i<n; i++){
+  for (int i = 0; i<message.length(); i++){
     if (message[i] != ' '){
       cout << alpha[(letter(message[i]) + l)%26];
     } else {
