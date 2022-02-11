@@ -5,3 +5,8 @@ const int MD = 1001;
 #define end "\n"
 #define space " "
 
+int main(){
+    string Input; 
+    getline(cin, Input); 
+    
+}
