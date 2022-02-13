@@ -1,9 +1,8 @@
-
+package LoveLetterDmoj;
 import java.util.Scanner;  // Import the Scanner class
 
-class Main {
 
-    
+class Main {
   static int letter(char find, String alphabet){
     int found = 0; 
     for(int i = 0; i < 26; i++){
@@ -27,5 +26,6 @@ class Main {
       System.out.print(" "); 
     }
     }
+    System.out.println(); 
   }
 }
