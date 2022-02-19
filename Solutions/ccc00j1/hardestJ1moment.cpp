@@ -7,5 +7,4 @@ const int MD = 1001;
 #define s second
 #define pb push_back
 #define spf(i, n) for (int i = 0; i < n; i++)
-
 typedef long long ll; 
