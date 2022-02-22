@@ -6,6 +6,5 @@ const int MD = 1001;
 #define f first
 #define s second
 #define pb push_back
-#define spf(i, n) for (int i = 0; i < n; i++)
-
+#define fl(i, n) for (int i = 0; i < n; i++)
 typedef long long ll; 
