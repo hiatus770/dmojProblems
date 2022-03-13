@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
     "files.associations": {
         "iostream": "cpp"
     }
+=======
+    "C_Cpp.errorSquiggles": "Disabled"
+>>>>>>> d98c5d6257c8e2473c570ae7a2979cadba47e80f
 }

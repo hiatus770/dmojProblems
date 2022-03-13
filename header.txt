@@ -2,7 +2,11 @@
 using namespace std;
 const int MD = 1001; 
 #define inputJunk ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+<<<<<<< HEAD
 #define ell "\n"; 
+=======
+#define ell "\n"
+>>>>>>> d98c5d6257c8e2473c570ae7a2979cadba47e80f
 #define f first
 #define s second
 #define pb push_back

@@ -7,76 +7,25 @@ using namespace std;
 int n, m, k; 
 
 int main(){
+    inputJunk 
     cin >> n >> m >> k; 
-    
-    if (m == 2){
-        if (n > k){
-            cout << -1 << endl; 
-        } else {
-            int goal = k - n; 
-            int score = 0; 
-            if (goal > n-1){
-                cout << -1 << endl; 
-            } else {
-                for(int i = 0; i < n; i++){
-                    if (score != goal){
-                        if (score % 2 == 0){
-                            cout <<  "1";  
-                        } else {
-                            cout << "2"; 
-                        }
-                        if (i != n-1){
-                            cout << " "; 
-                        } else {
-                            cout << endl; 
-                        }
-                        score += 1; 
-                    } else if (score == goal){
-                        if (score % 2 == 0){
-                            cout <<  "1";  
-                        } else {
-                            cout << "2"; 
-                        }
-                        if (i != n-1){
-                            cout << " "; 
-                        } else {
-                            cout << endl; 
-                        }                
-                    } 
-                }
-            }
-        }
-
+    if (k < n || ((n*1)*n)/2 < k){
+        cout << -1 << endl; 
+    } else if (n == k){
+        for(int i = 0; i < n; i++){
+            cout << i << " "; 
+        } cout << endl; 
     } else {
-        if (2 * n < k){
-            cout << -1 << endl; 
-        } else {
-            int goal = k - n; 
-            int score = 0; 
-            int sum = 0; 
-            for(int i = 0; i < n; i++){
-                if (score != goal){
-                    if (goal - score == 1){
-                        cout << sum-1;
-
-                    } else {
-                        cout << sum+1; 
-                    }
-                    score += sum++;
-                    if (i == n-1){
-                        cout << endl; 
-                    }  else {
-                        cout << " "; 
-                    }
-                } else {
-                    cout << sum; 
-                    if (i == n-1){
-                        cout << endl; 
-                    }  else {
-                        cout << " "; 
-                    }
+        int g = k - n; int num = 0; int sum = 0; int ans; 
+        for(int i = 0; i < n; i++){
+            if (g == sum){
+                cout << num << " ";  
+            } else {
+                if (num+1 >= g-sum){
+ 
                 }
-            }
         }
+
+
     }
 }
