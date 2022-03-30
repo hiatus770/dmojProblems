@@ -10,9 +10,8 @@ typedef long long ll;
 typedef pair<int, int> pInt; 
 typedef pair<long long, long long> pLong; 
 #define mxn 10000000
-// ^ mogus moment!
 
-int cases; 
+int cases = 0; 
 
 void solve(){
     int n, t; cin >> n >> t;
@@ -20,7 +19,6 @@ void solve(){
     cout << "TOTAL: " << m << ell 
     int x = m-t; 
     cout << "HOW MUCH NEEDED: " << x << ell
-
 
 }
 
