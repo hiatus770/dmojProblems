@@ -10,5 +10,5 @@ typedef long long ll;
 typedef pair<int, int> pInt; 
 
 int main(){
-    int n, 
+    int n; 
 }
