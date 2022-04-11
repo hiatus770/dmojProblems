@@ -188,6 +188,9 @@ The two greatest numbers in each list are equal to each other
 the cock breaker ^
 
 
+fix the count error when you are making that code run, everything works but the subtraction portion of it where the parts intersect. 
+
+
 63082  shit code
 61605  og code
 64118 i am going to shit myself
