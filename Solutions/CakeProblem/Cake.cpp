@@ -11,10 +11,10 @@ typedef pair<int, int> pInt;
 #define mxN 5005 
 
 int n, m, k, q, arr[mxN][mxN]; 
-ll pre[mxN][mxN]; 
+ll psa[mxN][mxN]; 
 
 int main(){
-    inputJunk
+    ios::sync_with_stdio(0); cin.tie(0);
     cin >> n >> m >> k; 
 
     forl(k){
@@ -26,47 +26,27 @@ int main(){
             arr[r][d+1]--; 
         }
     }
+
+    // Applying psa to the difference array to get the actual values 
     for (int i = 1; i <= n; i++){
         for (int j = 1; j <= m; j++){
-            arr[j][i] = arr[j][i-1] + arr[j][i];  
+            arr[i][j] = arr[i][j-1] + arr[i][j];  
         }
-
     }
 
-    cout << "ORIGINAL:\n"; 
-    for (int i = 1; i <= n; i++){
-        for (int j = 1; j <= m; j++){
-            cout << arr[j][i] << " ";
-        }
-        cout << endl; 
-    }
-
+    // creating the 2d psa array 
     for(int i = 1; i <= n; i++){
         for (int j = 1; j <= m; j++){
-            pre[j][i] = arr[j][i] + pre[j-1][i] + pre[j][i-1] - pre[j-1][i-1];  
+            psa[i][j] = arr[i][j] + psa[i-1][j] + psa[i][j-1] - psa[i-1][j-1];
         }
     }
 
-    cout << "PSA:\n"; 
-    for (int i = 1; i <= n; i++){
-        for (int j = 1; j <= m; j++){
-            cout << pre[j][i] << " ";
-        }
-        cout << endl; 
-    }
-
-    for(int i = 1; i <= n; i++){
-        for (int j = 1; j <= m; j++){
-            pre[j][i] = arr[j][i] + pre[j-1][i] + pre[j][i-1]; 
-        }
-    }
-
+    // Using the 2dpsa to output the range in O(1) time 
     cin >> q; 
     forl(q){
         int a, b, c, d; 
         cin >> a >> b >> c >> d;
-        cout << pre[d][c]-pre[d][a-1]-pre[b-1][c]+pre[b-1][a-1] << ell 
-        cout << pre[d][c] << "-" << pre[d][a-1] << "-" << pre[b-1][c] << "+" << pre[b-1][a-1] << ell
+        cout << psa[c][d]-psa[a-1][d]-psa[c][b-1]+psa[a-1][b-1] << '\n';
     }
 /* (a,b) to (c, d) is the rectangle that we want */ 
 }
