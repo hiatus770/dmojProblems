@@ -22,7 +22,6 @@ int bfs(pair<int, int> src, pair<int, int> dst){
     c = q.front(); 
     q.pop(); 
     // 8 Directions possible with the Knight
-    
 
 
     // DEBUG
