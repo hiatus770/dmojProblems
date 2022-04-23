@@ -10,6 +10,19 @@ typedef long long ll;
 typedef pair<int, int> pInt; 
 #define mxn 500005
 
-int main(){
+int n, m, k; 
+set<pair<int, int>> pos; 
+map<pair<int, int>, bool> state; 
+
+void bfs(){
+    // bfs function thing for each group 
     
+}
+
+int main(){
+    cin >> n >> m >> k; 
+    forl(k){
+        int a, b; 
+        cin >> a >> b; 
+    }
 }
