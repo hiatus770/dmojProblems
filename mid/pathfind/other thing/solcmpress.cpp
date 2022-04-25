@@ -16,36 +16,60 @@ map<long long, vector<long long>> adj; // the adj list for a given unique intege
 queue<long long> q; // some queue for the graph traversal 
 map<long long, vector<bool>> border;  
 
-bool bfs(int startx, int starty){
+bool bfs(int id){
     bool top = false; bool bottom = false; bool left = false; bool right = false; 
+    int cur; 
+    q.push(id); 
+    while(!q.empty()){
+        cur = q.front(); q.pop(); 
+        for( auto i : adj[cur]){
+            if (i == -2){
 
+            } else if (i == -1){
+                
+            } else if (true) {
+
+            }
+        }
+    }
+    return true; 
 }
 
 int main(){
     inputJunk; 
     cin >> n >> m >> k; 
     forl(k){
-        int x, y; bool top = false; bool bottom = false; bool left = false; bool right = false; 
+        int x, y; 
         cin >> x >> y;
+        long long id = x*mxn+y; 
+        adj[id]; 
         if (x == 1){
-            // cout << "Left\n"; 
-            
+            adj[id].append(-1); 
         }
         if (x == n){
-            // cout << "Right\n";
-             
-        }
+            adj[id].append(-2); 
+        }  
         if (y == m){
-            // cout << "Bottom\n";
-             
+            adj[id].append(-1); 
         }
         if (y == 1){
-            // cout << "Top\n";
-             
+            adj[id].append(-2);
         }
-        
+
+        // Append the coordinates  around it except the border ones whihch have already been appended 
+        int xa[] = {1, -1, 0, 0, -1, 1, -1, 1}; int ya[]={0, 0, -1, 1, 1, 1, -1, -1}; 
+
+        for(int i = 0; i < 8; i++){
+            if (x+xa[i] < n && x+xa[i] > 1 && y+ya[i] < m && y+ya[i] > 1){
+                adj[id].append(x+xa[i]*mxn + y+ya[i]);
+                cout << "ADJ FOR " << x << " " << y << " IS " << x+xa[i] << " " << y+ya[i] << endl; 
+            }
+        }
+
+        // if its not in the set then its visited, if its in the set then its not visited.  
+        pos.insert(id); 
     }
-    cout << "YES\n"; 
+    
 }
 
 /* 

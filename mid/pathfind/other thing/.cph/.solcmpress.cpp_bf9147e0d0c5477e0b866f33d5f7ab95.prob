@@ -1,0 +1,1 @@
+{"name":"Local: solcmpress","url":"/home/hiatus/vscode/DMOJp/dmojProblems/mid/pathfind/other thing/solcmpress.cpp","tests":[{"id":1650900881995,"input":"10 10 5\n1 1\n1 2\n1 3\n1 5\n4 3","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/hiatus/vscode/DMOJp/dmojProblems/mid/pathfind/other thing/solcmpress.cpp","group":"local","local":true}
