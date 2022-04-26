@@ -17,16 +17,16 @@ queue<long long> q; // some queue for the graph traversal
 map<long long, vector<bool>> border;  
 
 bool bfs(int id){
-    bool top = false; bool bottom = false; bool left = false; bool right = false; 
+    bool one = false; bool two = false;  
     int cur; 
     q.push(id); 
     while(!q.empty()){
         cur = q.front(); q.pop(); 
         for( auto i : adj[cur]){
             if (i == -2){
-
+                two = true; 
             } else if (i == -1){
-                
+                one = true; 
             } else if (true) {
 
             }
@@ -66,8 +66,7 @@ int main(){
             }
         }
 
-        // if its not in the set then its visited, if its in the set then its not visited.  
-        pos.insert(id); 
+        // if the number is in the set that means it is visited already, therefore dont put thmei nthe set now  :) 
     }
     
 }
