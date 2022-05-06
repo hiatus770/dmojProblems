@@ -1,0 +1,1 @@
+{"name":"Local: main","url":"/home/hiatus/Documents/VisualCode/dmojProblems/Solutions/sssp/main.cpp","tests":[{"id":1651844234219,"input":"3 4\n1 2 2000\n1 2 1\n2 3 1\n3 2 10","output":"0\n2\n4\n-1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/hiatus/Documents/VisualCode/dmojProblems/Solutions/sssp/main.cpp","group":"local","local":true}
