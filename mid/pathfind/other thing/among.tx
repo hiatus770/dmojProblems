@@ -10,65 +10,67 @@ typedef long long ll;
 typedef pair<int, int> pInt; 
 #define mxn 500005
 #define has(x) (adj.find(x) != adj.end())
-ll n, m, k; 
+
+int n, m, k; 
+queue<ll> q; 
 set<ll> vis; // the unique integer thing 
 map<ll, vector<ll>> adj; // the adj list for a given unique integer -1 means adjacent to left border, -2 means adjacent to right border, -3 means adjacent to top, -4 is bottom
-queue<ll> q; // some queue for the graph traversal 
 ll b = -1; // bottom side 
 ll t = -2; // top side 
 
 int main(){
     inputJunk; 
     cin >> n >> m >> k; 
+
     for(int i = 0; i < k; i++){
         ll x, y; 
-        cin >> x >> y; x--; y--; 
-
-        ll id = (y*n)+(x);
-        adj[id] = vector<ll>(); 
-
-        if (x == 0 || y == n-1){ // lower
+        cin >> x >> y;
+        x-=1; y-=1; 
+        ll id = (x*mxn)+(y); 
+        if (x == 0 || y == m-1){
             adj[id].pb(b); 
         }
-        if (x == m-1 || y == 0){ // upper 
+        if (x == n-1 || y == 0){
             adj[t].pb(id); 
         }
+
+        // Append the coordinates  around it except the border ones whihch have already been appended 
     }
 
     ll pos; 
     for (auto p : adj){
         pos = p.first; 
-        if (pos%n != n-1){
+        if (pos%mxn != 0){
             if (has(pos+1)){
-                adj[pos].pb(pos+1); 
+                adj[pos].push_back(pos+1); 
             }
-            if (has(pos+1-n)){
-                adj[pos].pb(pos+1-n); 
+            if (has(pos+1-mxn)){
+                adj[pos].push_back(pos+1-mxn); 
             }
-            if (has(pos+1+n)){
-                adj[pos].pb(pos+1+n); 
+            if (has(pos+1+mxn)){
+                adj[pos].push_back(pos+1+mxn); 
             }
         }
-        if (pos%n != 0){
+        if (pos%mxn != mxn-1){
             if (has(pos-1)){
-                adj[pos].pb(pos-1); 
+                adj[pos].push_back(pos-1); 
             }
-            if (has(pos-1-n)){
-                adj[pos].pb(pos-1-n); 
+            if (has(pos-1-mxn)){
+                adj[pos].push_back(pos-1+mxn); 
             }
-            if (has(pos-1+n)){
-                adj[pos].pb(pos-1+n); 
+            if (has(pos-1+mxn)){
+                adj[pos].push_back(pos-1+mxn); 
             }
         }
-        if (has(pos+n)){
-            adj[pos].pb(pos+n); 
+        if (has(pos+mxn)){
+            adj[pos].pb(pos+mxn); 
         }
-        if (has(pos-n)){
-            adj[pos].pb(pos-n); 
+        if (has(pos-mxn)){
+            adj[pos].pb(pos-mxn); 
         }
     }
 
-    ll cur; 
+    ll cur;
     q.push(t); vis.insert(t); 
     while(!q.empty()){
         cur = q.front(); q.pop(); 
@@ -85,3 +87,4 @@ int main(){
     
     cout << "YES\n"; 
 }
+
