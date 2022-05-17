@@ -22,10 +22,6 @@ int main(){
     bool state; 
     forl(n){
         int x, y, z; cin >> x >> y >> z; x--; y--; z--; 
-        forl(3){
-            cout << one[i] << " "; 
-        } 
-        cout << endl; 
 
         swap(one[x], one[y]); 
         swap(two[x], two[y]); 
