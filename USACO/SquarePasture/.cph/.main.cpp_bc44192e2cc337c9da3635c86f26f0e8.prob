@@ -1,0 +1,1 @@
+{"name":"Local: main","url":"/home/hiatus/vscode/DMOJp/dmojProblems/USACO/SquarePasture/main.cpp","tests":[{"id":1652548457449,"input":"6 6 8 8\n1 8 4 9","output":"49"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/hiatus/vscode/DMOJp/dmojProblems/USACO/SquarePasture/main.cpp","group":"local","local":true}
