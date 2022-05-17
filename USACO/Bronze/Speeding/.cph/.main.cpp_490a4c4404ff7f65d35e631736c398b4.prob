@@ -1,0 +1,1 @@
+{"name":"Local: main","url":"/home/hiatus/vscode/DMOJp/dmojProblems/USACO/Bronze/Speeding/main.cpp","tests":[{"id":1652808946784,"input":"3 3\n40 75\n50 35\n10 45\n40 76\n20 30\n40 40","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/hiatus/vscode/DMOJp/dmojProblems/USACO/Bronze/Speeding/main.cpp","group":"local","local":true}
