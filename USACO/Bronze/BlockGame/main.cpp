@@ -11,8 +11,8 @@ typedef pair<int, int> pInt;
 #define mxn 100
 
 int n; int b; 
-map<char, int> frontSide; 
-map<char, int> backSide; 
+map<char, int> total; 
+map<char, int> comp; 
 string alpha = "abcdefghijklmnopqrstuvwxyz"; vector<int> permutation;
 pair<string, string> word[mxn]; 
 
@@ -24,8 +24,12 @@ int main(){
 
     // set all letters to 0
     for(char i : alpha){
-        frontSide[i] = 0; 
-        backSide[i] = 0;
+        total[i] = 0; 
+        comp[i] = 0;
+    }
+
+    for(int i = 0; i < n; i++ ){
+        cin >> word[i].f >> word[i].s; 
     }
 
     for(int i = 0; i < n; i++){
@@ -38,8 +42,19 @@ int main(){
             permutation[i] = b%2;
             b = b/2;
         }
-
-        cout << permutation << ell
+        for(auto a : permutation){
+            if (a == 0){
+                for (char letter : word[j].f){
+                    comp[letter]++; 
+                }
+            } 
+            if (a == 1){
+                for (char letter : word[j].s){
+                    comp[letter]++; 
+                    
+                }                
+            }
+        }
     }   
 
 }
