@@ -8,38 +8,39 @@ using namespace std;
 #define forl(n) for (int i = 0; i < n; i++)
 typedef long long ll; 
 typedef pair<int, int> pInt; 
-#define mxn 500005
+#define mxn 100
 
-int n; 
+int n; int b; 
 map<char, int> frontSide; 
 map<char, int> backSide; 
-string alpha = "abcdefghijklmnopqrstuvwxyz"; 
+string alpha = "abcdefghijklmnopqrstuvwxyz"; vector<int> permutation;
+pair<string, string> word[mxn]; 
 
 int main(){
-    freopen("blocks.out", "w", stdout); 
-    freopen("blocks.in", "r", stdin); 
+    // freopen("blocks.out", "w", stdout); 
+    // freopen("blocks.in", "r", stdin); 
+
     cin >> n; 
+
+    // set all letters to 0
     for(char i : alpha){
         frontSide[i] = 0; 
         backSide[i] = 0;
     }
 
-    forl(n){
-        string a, b; 
-        cin >> a >> b; 
-        for (char i : a){
-            frontSide[i]++;  
-        }
-        for (char i : b){
-            backSide[i]++; 
-        }
-    }
-    
-    for(char i : alpha){
-        cout << max(frontSide[i], backSide[i]) << endl; 
+    for(int i = 0; i < n; i++){
+        permutation.push_back(0); 
     }
 
+    for (int j = 0; j < pow(2, n); j++){
+        b = j;  
+        for(int i=0; b>0; i++){    
+            permutation[i] = b%2;
+            b = b/2;
+        }
 
+        cout << permutation << ell
+    }   
 
 }
 
