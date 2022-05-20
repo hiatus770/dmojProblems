@@ -11,21 +11,19 @@ typedef pair<int, int> pInt;
 #define mxn 100
 
 int n; int b; 
-map<char, int> total; 
-map<char, int> comp; 
+unordered_map<char, int> total; 
 string alpha = "abcdefghijklmnopqrstuvwxyz"; vector<int> permutation;
 pair<string, string> word[mxn]; 
 
 int main(){
-    // freopen("blocks.out", "w", stdout); 
-    // freopen("blocks.in", "r", stdin); 
+    freopen("blocks.out", "w", stdout); 
+    freopen("blocks.in", "r", stdin); 
 
     cin >> n; 
 
     // set all letters to 0
     for(char i : alpha){
         total[i] = 0; 
-        comp[i] = 0;
     }
 
     for(int i = 0; i < n; i++ ){
@@ -38,24 +36,39 @@ int main(){
 
     for (int j = 0; j < pow(2, n); j++){
         b = j;  
-        for(int i=0; b>0; i++){    
+        
+        for(int i=0; b>0; i++){
             permutation[i] = b%2;
             b = b/2;
         }
-        for(auto a : permutation){
-            if (a == 0){
-                for (char letter : word[j].f){
-                    comp[letter]++; 
+
+        unordered_map<char, int> comp; 
+
+        for (char a : alpha){
+            comp[a] = 0;
+        }
+
+        for(int i = 0; i < permutation.size(); i++){
+            if (permutation[i] == 0){
+                for(char a : word[i].f){
+                    comp[a]++; 
                 }
             } 
-            if (a == 1){
-                for (char letter : word[j].s){
-                    comp[letter]++; 
-                    
-                }                
+            if (permutation[i]== 1){  
+                for(char a : word[i].s){
+                    comp[a]++; 
+                }          
             }
         }
+    
+        for (char a : alpha){
+            total[a] = max(total[a], comp[a]); 
+        }
     }   
+
+    for(char a : alpha){
+        cout << total[a] << ell
+    }
 
 }
 
