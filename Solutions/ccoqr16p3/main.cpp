@@ -30,9 +30,17 @@ int coordSum(int i){
     if (i == 0){
         // first pair of coordinates
         return seriesSum(arr[i].f, arr[i].s);   
+        f = arr[i].f-arr[i].s; 
     } else {
-        // all other pairs of coordinates
-        return 0; 
+        // first check if they are in the same series
+        if (arr[i].s <= arr[i].s-f){
+            printf("In the same series\n");
+            return 0; 
+        } else {
+            // find out where they intersect on the grid, and use the formula newSeries - intersectionSeries = blocks added
+            int columnIntersection = arr[i].s; 
+            int rowIntersection = (arr[i].f-f)+();
+        }
     }
 }
 
