@@ -30,16 +30,19 @@ int coordSum(int i){
     if (i == 0){
         // first pair of coordinates
         return seriesSum(arr[i].f, arr[i].s);   
-        f = arr[i].f-arr[i].s; 
+        f = arr[0].f-arr[0].s;
     } else {
         // first check if they are in the same series
-        if (arr[i].s <= arr[i].s-f){
+        if (arr[i].s <= arr[i].s-f && false){
             printf("In the same series\n");
             return 0; 
         } else {
             // find out where they intersect on the grid, and use the formula newSeries - intersectionSeries = blocks added
             int columnIntersection = arr[i].s; 
-            int rowIntersection = (arr[i].f-f)+();
+            int rowIntersection = arr[i].f + (arr[i].f-arr[0].f);
+            cout << "F:" << f << ell
+            cout << rowIntersection << " " << columnIntersection << ell
+            return 1;
         }
     }
 }
