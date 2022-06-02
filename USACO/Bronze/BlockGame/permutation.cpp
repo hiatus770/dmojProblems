@@ -13,19 +13,6 @@ typedef pair<int, int> pInt;
 int n; 
 map<char, int> blocks; 
 string alpha = "abcdefghijklmnopqrstuvwxyz"; 
- /*
- fox box 
- dog cat 
- car bus
- 
-
-f=1 b=1 o=1 x=1 
-d=1 c=1 g=1 a=1 t=1 o=1 
-c=1 a=1 r=1 b=1 u=1 s=1 
- 
- 
-  */ 
-
 
 int main(){
     freopen("blocks.in", "r", stdin); 
@@ -52,5 +39,4 @@ int main(){
     for(char i : alpha){
         cout << blocks[i] << ell 
     }
-
 }
