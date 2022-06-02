@@ -8,41 +8,39 @@ using namespace std;
 #define forl(n) for (int i = 0; i < n; i++)
 typedef long long ll; 
 typedef pair<int, int> pInt; 
-#define mxn 500005
+#define mxn 100005
 
 /*It's a well-known fact that, inside computers, all data is stored in 2D pyramids of data blocks.
 
 A certain pyramid has  () rows, numbered  from top to bottom. Each row  has  block spaces, which are labelled  from left to right. Each block space  in rows  rests on top of two supporting block spaces in the row below it — block spaces  and . For example, a pyramid with 6 rows is illustrated below, with block spaces , , and  indicated in red:*/ 
 
 // Data structure problem on dmoj 
-int m; int n; int f; int ans; 
-pair<int, int> arr[mxn]; 
+int m; int n; int f; long long ans; 
+pair<ll, ll> arr[mxn]; 
 
-int seriesSum(int row, int column){
-    double dif = m-row+1; 
-    cout << "DIF: " << dif << ell; 
-    cout << (dif/2)*(dif+1) << ell 
-    return (dif/2)*(dif+1);   
+long long seriesSum(int row, int column){
+    ll dif = m-row+1; 
+    return ((double)dif/2)*(dif+1);   
 }
 
 // returns the sum of a series of number from a to b
-int coordSum(int i){
+long long coordSum(int i){
     if (i == 0){
         // first pair of coordinates
-        return seriesSum(arr[i].f, arr[i].s);   
         f = arr[0].f-arr[0].s;
+        return seriesSum(arr[0].f, arr[0].s);
     } else {
         // first check if they are in the same series
-        if (arr[i].s <= arr[i].s-f && false){
-            printf("In the same series\n");
-            return 0; 
+        if (arr[i].s <= arr[i].f-f){
+            return 0;
         } else {
             // find out where they intersect on the grid, and use the formula newSeries - intersectionSeries = blocks added
-            int columnIntersection = arr[i].s; 
-            int rowIntersection = arr[i].f + (arr[i].f-arr[0].f);
+            ll rowIntersection =  arr[i].f + (arr[i].s) - (arr[i].f-f); 
+            ll columnIntersection = arr[i].s;
             cout << "F:" << f << ell
             cout << rowIntersection << " " << columnIntersection << ell
-            return 1;
+            f = arr[i].f-arr[i].s;
+            return seriesSum(arr[i].f, arr[i].s) - seriesSum(rowIntersection, columnIntersection);
         }
     }
 }
@@ -54,7 +52,8 @@ int main(){
     }
     sort(arr, arr + n);
     forl(n){
+        cout << "ROW:" << arr[i].f << " " << arr[i].s << ell;
         ans += coordSum(i); 
     }
-    //cout << ans << ell;
+    cout << ans << ell;
 }
