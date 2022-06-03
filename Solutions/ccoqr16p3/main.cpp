@@ -15,7 +15,8 @@ typedef pair<int, int> pInt;
 A certain pyramid has  () rows, numbered  from top to bottom. Each row  has  block spaces, which are labelled  from left to right. Each block space  in rows  rests on top of two supporting block spaces in the row below it — block spaces  and . For example, a pyramid with 6 rows is illustrated below, with block spaces , , and  indicated in red:*/ 
 
 // Data structure problem on dmoj 
-int m; int n; int f; long long ans; 
+int m; int n; int f; long long ans; int p; int p; 
+// f is front and p is the behind largest. 
 pair<ll, ll> arr[mxn]; 
 
 long long seriesSum(int row, int column){
@@ -32,7 +33,7 @@ long long coordSum(int i){
     } else {
         // first check if they are in the same series
         if (arr[i].s <= arr[i].f-f){
-            return 0;
+            return 0;   
         } else {
             // find out where they intersect on the grid, and use the formula newSeries - intersectionSeries = blocks added
             ll rowIntersection =  arr[i].f + (arr[i].s) - (arr[i].f-f); 
@@ -57,3 +58,13 @@ int main(){
     }
     cout << ans << ell;
 }
+
+
+/*
+Comments of the shame:
+- did not consider the case when the first row is in front of the first series 
+
+Comments of not shame:
+- everything else was clean otherwise
+
+*/
