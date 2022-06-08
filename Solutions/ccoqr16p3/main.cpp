@@ -59,12 +59,10 @@ int main(){
     cout << ans << ell;
 }
 
-
 /*
 Comments of the shame:
 - did not consider the case when the first row is in front of the first series 
 
 Comments of not shame:
 - everything else was clean otherwise
-
 */
