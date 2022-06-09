@@ -19,6 +19,17 @@ long long seriesSum(int row, int column){
     return ((double)dif/2)*(dif+1);
 }
 
+// Finds the intersection of two coordinates
+// larger coordinate is the first
+pair<int, int> intersection(int x, int y){
+    int i = min(x, y); 
+    int j = max(x, y); 
+    int f = cl[i].f-cl[i].s;
+    int rowIntersection = cl[j].f + (cl[j].s) - (cl[j].f-f); 
+    int columnIntersection = cl[j].s;
+    return {rowIntersection, columnIntersection};
+}
+
 // long long coordSum(){
 //     if (i < m-1){
 
@@ -47,4 +58,18 @@ int main(){
     for(auto i : cl){
         cout << i.f << " " << i.s << ell
     }
+    cl.pb({7 , 1});
+    cl.pb({5 , 2});
+    cout << intersection(1, 0).f << " " << intersection(0, 1).s << ell
 }
+/*
+1 [ ]
+2 [ ] [ ]
+3 [ ] [ ] [ ]
+4 [ ] [ ] [ ] [ ]
+5 [ ] [y] [ ] [ ] [ ]
+6 [ ] [ ] [ ] [ ] [ ] [ ]
+7 [x] [ ] [ ] [ ] [ ] [ ] [ ]
+8 [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]
+9 [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]
+*/
