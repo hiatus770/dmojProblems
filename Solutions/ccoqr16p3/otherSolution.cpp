@@ -20,24 +20,14 @@ long long seriesSum(int row, int column){
 }
 
 // Finds the intersection of two coordinates
-// larger coordinate is the first
 pair<int, int> intersection(int x, int y){
-    int i = min(x, y); 
-    int j = max(x, y); 
+    int i = min(x, y);
+    int j = max(x, y);
     int f = cl[i].f-cl[i].s;
     int rowIntersection = cl[j].f + (cl[j].s) - (cl[j].f-f); 
     int columnIntersection = cl[j].s;
     return {rowIntersection, columnIntersection};
 }
-
-// long long coordSum(){
-//     if (i < m-1){
-
-//     } else if (i == m-1){
-
-//     }
-
-// }
 
 int main(){
     cin >> n >> m;
@@ -45,31 +35,37 @@ int main(){
         cin >> arr[i].s >> arr[i].f;
     }
     sort(arr, arr+m);
-
-    int lastColumn = 0; int highestRow = 0;
     for(int i = 0; i < m; i++){
-        if (i == m-1){
-            cl.push_back({arr[i].s, arr[i].f});
-        } else if (arr[i].f != arr[i-1].f){
-            cl.push_back({arr[i-1].s, arr[i-1].f});
+        cl.pb({arr[i].s, arr[i].f});
+    }
+    // If its in the past tallest then do not include. 
+    for( auto i : cl){
+        cout << "COORDINATE: " << i.f << " " << i.s << ell;
+    }
+    for(int i = 0; i < cl.size(); i++){
+        pair<int, int> coord = cl[i];
+        if (i != cl.size()-1){
+            pair<int, int> intersect = intersection(i, i+1);
+            cout << "INTERSECTION OF " << coord.f << " "  << coord.s << " AND " << cl[i+1].f << " " << cl[i+1].s << " IS " << intersect.f << " " << intersect.s << ell;
+            cout << "ADDING: " << seriesSum(coord.f, coord.s) << "-" << seriesSum(intersect.f, intersect.s) << ell 
+            ans += seriesSum(coord.f, coord.s) - seriesSum(intersect.f, intersect.s);
+        } else {
+            ans += seriesSum(coord.f, coord.s);
+            cout << ".ADDING: " << seriesSum(coord.f, coord.s) << ell 
         }
-        cout << "ON COORDINATE: " << arr[i].s << " " << arr[i].f << ell
     }
-    for(auto i : cl){
-        cout << i.f << " " << i.s << ell
-    }
-    cl.pb({7 , 1});
-    cl.pb({5 , 2});
-    cout << intersection(1, 0).f << " " << intersection(0, 1).s << ell
+
+    cout << ans << ell 
+    
 }
 /*
 1 [ ]
 2 [ ] [ ]
-3 [ ] [ ] [ ]
-4 [ ] [ ] [ ] [ ]
-5 [ ] [y] [ ] [ ] [ ]
-6 [ ] [ ] [ ] [ ] [ ] [ ]
-7 [x] [ ] [ ] [ ] [ ] [ ] [ ]
+3 [x] [ ] [ ]
+4 [x] [x] [ ] [b]
+5 [x] [x] [x] [b] [b]
+6 [x] [a] [x] [b] [b] [b]
+7 [ ] [ ] [ ] [ ] [ ] [ ] [ ]
 8 [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]
 9 [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]
 */
