@@ -15,7 +15,7 @@ pair<int, int> arr[mxn];
 vector<pair<int, int>> cl;
 
 long long seriesSum(int row, int column){
-    ll dif = m-row+1;
+    ll dif = n-row+1;
     return ((double)dif/2)*(dif+1);
 }
 
@@ -39,33 +39,31 @@ int main(){
         cl.pb({arr[i].s, arr[i].f});
     }
     // If its in the past tallest then do not include. 
-    for( auto i : cl){
-        cout << "COORDINATE: " << i.f << " " << i.s << ell;
-    }
-    for(int i = 0; i < cl.size(); i++){
-        pair<int, int> coord = cl[i];
-        if (i != cl.size()-1){
-            pair<int, int> intersect = intersection(i, i+1);
-            cout << "INTERSECTION OF " << coord.f << " "  << coord.s << " AND " << cl[i+1].f << " " << cl[i+1].s << " IS " << intersect.f << " " << intersect.s << ell;
-            cout << "ADDING: " << seriesSum(coord.f, coord.s) << "-" << seriesSum(intersect.f, intersect.s) << ell 
-            ans += seriesSum(coord.f, coord.s) - seriesSum(intersect.f, intersect.s);
-        } else {
-            ans += seriesSum(coord.f, coord.s);
-            cout << ".ADDING: " << seriesSum(coord.f, coord.s) << ell 
-        }
-    }
+    // for( auto i : cl){
+    //     cout << "COORDINATE: " << i.f << " " << i.s << ell;
+    // }
 
-    cout << ans << ell 
+    // for(int i = 0; i < cl.size(); i++){
+    //     pair<int, int> coord = cl[i];
+    //     if (i != cl.size()-1){
+    //         pair<int, int> intersect = intersection(i, i+1);
+    //         cout << "INTERSECTION OF " << coord.f << " "  << coord.s << " AND " << cl[i+1].f << " " << cl[i+1].s << " IS " << intersect.f << " " << intersect.s << ell;
+    //         cout << "ADDING: " << seriesSum(coord.f, coord.s) << "-" << seriesSum(intersect.f, intersect.s) << ell 
+    //         ans += seriesSum(coord.f, coord.s) - seriesSum(intersect.f, intersect.s);
+    //     } else {
+    //         ans += seriesSum(coord.f, coord.s);
+    //         cout << ".ADDING: " << seriesSum(coord.f, coord.s) << ell 
+    //     }
+    // }
+    
+    //cout << ans << ell 
     
 }
 /*
 1 [ ]
 2 [ ] [ ]
-3 [x] [ ] [ ]
-4 [x] [x] [ ] [b]
-5 [x] [x] [x] [b] [b]
-6 [x] [a] [x] [b] [b] [b]
-7 [ ] [ ] [ ] [ ] [ ] [ ] [ ]
-8 [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]
-9 [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]
+3 [ ] [ ] [ ]
+4 [ ] [ ] [ ] [ ]
+5 [ ] [x] [ ] [ ] [ ]
+6 [ ] [ ] [ ] [ ] [ ] [ ]
 */
