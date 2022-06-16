@@ -15,6 +15,9 @@ pair<int, int> arr[mxn];
 vector<pair<int, int>> cl;
 
 long long seriesSum(int row, int column){
+    if (row > n){
+        return 0;
+    }
     ll dif = n-row+1;
     return ((double)dif/2)*(dif+1);
 }
@@ -39,9 +42,26 @@ int main(){
         cl.pb({arr[i].s, arr[i].f});
     }
     // If its in the past tallest then do not include. 
-    // for( auto i : cl){
-    //     cout << "COORDINATE: " << i.f << " " << i.s << ell;
-    // }
+    int f = INT_MAX; 
+    int pastCoord = 0;   
+    for( int j = 0; j < cl.size(); j++){
+        pInt i = cl[j]; 
+        if(i.s <= i.f-f){
+            cout << "Current coordinate is under another coordinate.\n";
+        } else if (i.s > i.f-f){
+            cout << "Current coordinate is over another coordinate or is the starting coordinate.\n";
+            f = i.f - i.s;
+            pInt intersect = intersection(j, pastCoord); 
+            cout << "Intersection is: " << intersect.f << " " << intersect.s << ell;
+            if (j != 0){
+                ans += seriesSum(i.f, i.s) - seriesSum(intersect.f, intersect.s); 
+            } else {
+                ans += seriesSum(i.f, i.s);
+            }
+
+            cout << "Sum of first coordinate: " << seriesSum(i.f, i.s) << " Sum of second coordinate: " << seriesSum(intersect.f, intersect.s) << ell 
+        }
+    }
 
     // for(int i = 0; i < cl.size(); i++){
     //     pair<int, int> coord = cl[i];
@@ -56,7 +76,7 @@ int main(){
     //     }
     // }
     
-    //cout << ans << ell 
+    cout << ans << ell 
     
 }
 /*
