@@ -1,0 +1,1 @@
+{"name":"Local: main","url":"/home/hiatus/Documents/dmojProblems/DMOJ/Triangles/main.cpp","tests":[{"id":1693939983799,"input":"5\n7\n3 8\n8 1 0\n2 7 4 4\n4 5 2 6 5","output":""},{"id":1693944575485,"input":"3","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/hiatus/Documents/dmojProblems/DMOJ/Triangles/main.cpp","group":"local","local":true}
