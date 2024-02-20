@@ -52,7 +52,7 @@ int main(){
     // Now that we have the PSA we can solve the problem for each of the K values 
     for (int i = 0; i < k; i++){
         cout << sum(a[i]); 
-    }
+    }  
 
 
 }
