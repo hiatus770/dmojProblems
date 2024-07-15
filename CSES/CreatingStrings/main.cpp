@@ -12,13 +12,37 @@ typedef pair<int, int> pInt;
 #define mxn 500005
 
 int charCount[26]; 
+vector<string> permutations; 
+string input;
 
+void findPermutations(string current){
+    if (current.size() == input.size()){
+        permutations.push_back(current); 
+        return; 
+    }
+
+    // Now if it isn't the full length we have to make it full length
+    for(int i = 0; i < 26; i++){
+        if (charCount[i] > 0){
+            charCount[i]--; 
+            findPermutations(current + (char)('a' + i)); 
+            charCount[i]++; // Once we are done using it we increase the count again 
+        }
+    }
+}
 
 int main(){
-    vector<string> answers; 
-    string input; 
     cin >> input; 
     for (char i : input){
-
+        charCount[i - 'a']++; 
     }
+
+    findPermutations(""); 
+
+    cout << permutations.size() << endl; 
+    
+    for (string permutation : permutations) {
+        cout << permutation << endl; 
+    }
+
 }
